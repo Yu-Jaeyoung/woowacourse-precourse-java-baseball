@@ -5,13 +5,13 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GamePlayer {
+public class GamePlayerInput {
 
-    protected List<Integer> userAnswerInput() {
+    protected final List<Integer> userAnswerInput() {
 
-        String[] userInputToStringArray;
+        final String[] userInputToStringArray;
 
-        List<Integer> userInputToArrayListInteger = new ArrayList<>();
+        final List<Integer> userInputToArrayListInteger = new ArrayList<>();
 
         try {
             userInputToStringArray = Validator
@@ -28,9 +28,9 @@ public class GamePlayer {
         return userInputToArrayListInteger;
     }
 
-    protected String userRestartInput() {
+    protected final String userRestartInput() {
 
-        String userRestartInput;
+        final String userRestartInput;
 
         try {
             userRestartInput = Validator

@@ -3,7 +3,7 @@ package baseball.game;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Game {
-    private final GamePlayer gamePlayer = new GamePlayer();
+    private final GamePlayerInput gamePlayerInput = new GamePlayerInput();
 
     public void run() {
 
@@ -13,7 +13,7 @@ public class Game {
 
         do {
             baseBallGameRunner();
-            switch (gamePlayer.userRestartInput()) {
+            switch (gamePlayerInput.userRestartInput()) {
                 case "1" -> {
                 }
                 case "2" -> {
@@ -34,7 +34,7 @@ public class Game {
         do {
             System.out.print(GamePhrases.inputNum);
 
-            gameReferee.countStrikeAndBall(gamePlayer.userAnswerInput());
+            gameReferee.countStrikeAndBall(gamePlayerInput.userAnswerInput());
 
             continueBaseballGame = gameReferee.continueBaseballGame();
         } while (continueBaseballGame);
