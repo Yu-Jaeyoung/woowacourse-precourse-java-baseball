@@ -26,16 +26,17 @@ public class Game {
 
     private void baseBallGameRunner() {
 
-        boolean isThreeStrike;
+        boolean continueBaseballGame;
 
-        GameController gameController = new GameController();
+        GameReferee gameReferee = new GameReferee();
+        gameReferee.makeAnswer();
 
         do {
             System.out.print(GamePhrases.inputNum);
 
-            gameController.isStrikeOrBall(gamePlayer.userAnswerInput());
+            gameReferee.countStrikeAndBall(gamePlayer.userAnswerInput());
 
-            isThreeStrike = gameController.printResultPhrase();
-        } while (isThreeStrike);
+            continueBaseballGame = gameReferee.continueBaseballGame();
+        } while (continueBaseballGame);
     }
 }
