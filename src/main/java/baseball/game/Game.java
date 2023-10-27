@@ -1,5 +1,6 @@
 package baseball.game;
 
+import baseball.converter.Converter;
 import camp.nextstep.edu.missionutils.Console;
 
 public class Game {
@@ -13,10 +14,10 @@ public class Game {
 
         do {
             baseBallGameRunner();
-            switch (gamePlayerInput.userRestartInput()) {
-                case "1" -> {
+            switch (Converter.playerInputConverter(gamePlayerInput.userRestartInput())) {
+                case START -> {
                 }
-                case "2" -> {
+                case EXIT -> {
                     Console.close();
                     restart = false;
                 }
