@@ -11,26 +11,27 @@ public class Game {
 
         GamePhrases.startPhrase();
         do {
-            BaseBallGameRunner();
+            baseBallGameRunner();
             switch (gamePlayer.userRestartInput()) {
-                case "1":
-                    continue;
-                case "2":
+                case "1" -> {
+                }
+                case "2" -> {
                     Console.close();
                     restart = false;
+                }
             }
         } while (restart);
     }
 
-    private void BaseBallGameRunner() {
+    private void baseBallGameRunner() {
 
-        boolean isCorrect;
+        boolean isThreeStrike;
 
         GameController gameController = new GameController();
         do {
             GamePhrases.inputPhrase();
             gameController.isStrikeOrBall(gamePlayer.userAnswerInput());
-            isCorrect = gameController.printResultPhrase();
-        } while (isCorrect);
+            isThreeStrike = gameController.printResultPhrase();
+        } while (isThreeStrike);
     }
 }
