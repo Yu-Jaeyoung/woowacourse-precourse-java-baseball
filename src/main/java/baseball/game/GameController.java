@@ -42,22 +42,22 @@ public class GameController {
     }
 
     protected boolean printResultPhrase() {
-        if (strike == this.answer.size()) {
-            GamePhrases.strikePhrase(strike);
-            GamePhrases.answerPhrase();
-            GamePhrases.endPhrase();
+        if (this.strike == this.answer.size()) {
+            GamePhrasePrinter.strike(strike);
+            System.out.println(GamePhrases.answer);
+            System.out.println(GamePhrases.end);
 
             return false;
         } else if ((strike + ball) == 0) {
-            GamePhrases.outPhrase();
+            System.out.println(GamePhrases.out);
         } else if (strike != 0 && ball != 0) {
-            GamePhrases.ballAndStrikePhrase(strike, ball);
+            GamePhrasePrinter.ballAndStrike(strike, ball);
             clearStrikeAndBall();
         } else if (strike > 0) {
-            GamePhrases.strikePhrase(strike);
+            GamePhrasePrinter.strike(strike);
             clearStrikeAndBall();
         } else if (ball > 0) {
-            GamePhrases.ballPhrase(ball);
+            GamePhrasePrinter.ball(ball);
             clearStrikeAndBall();
         }
 

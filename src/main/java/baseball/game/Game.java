@@ -9,7 +9,8 @@ public class Game {
 
         boolean restart = true;
 
-        GamePhrases.startPhrase();
+        System.out.println(GamePhrases.start);
+
         do {
             baseBallGameRunner();
             switch (gamePlayer.userRestartInput()) {
@@ -28,9 +29,12 @@ public class Game {
         boolean isThreeStrike;
 
         GameController gameController = new GameController();
+
         do {
-            GamePhrases.inputPhrase();
+            System.out.print(GamePhrases.inputNum);
+
             gameController.isStrikeOrBall(gamePlayer.userAnswerInput());
+
             isThreeStrike = gameController.printResultPhrase();
         } while (isThreeStrike);
     }
