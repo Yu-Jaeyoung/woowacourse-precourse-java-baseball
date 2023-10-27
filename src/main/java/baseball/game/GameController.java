@@ -1,5 +1,6 @@
 package baseball.game;
 
+import baseball.constant.Constant;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ public class GameController {
     private int ball = 0;
 
     public GameController() {
-        while (this.answer.size() < AnswerLength.ANSWER_LENGTH.getAnswerLength()) {
+        while (this.answer.size() < Constant.ANSWER_LENGTH) {
             int randomNumber = Randoms.pickNumberInRange(1, 9);
             if (!this.answer.contains(randomNumber)) {
                 this.answer.add(randomNumber);

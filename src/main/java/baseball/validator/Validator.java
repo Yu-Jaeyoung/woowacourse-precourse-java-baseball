@@ -1,6 +1,6 @@
 package baseball.validator;
 
-import baseball.game.AnswerLength;
+import baseball.constant.Constant;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,7 +24,7 @@ public final class Validator {
     }
 
     private static void wrongLengthInput(final String userInput) {
-        if (userInput.length() != AnswerLength.ANSWER_LENGTH.getAnswerLength()) {
+        if (userInput.length() != Constant.ANSWER_LENGTH) {
             throw new IllegalArgumentException("입력 길이 예외");
         }
     }
@@ -32,17 +32,17 @@ public final class Validator {
     private static void duplicatedInput(final String userInput) {
         Set<Character> set = new HashSet<>();
 
-        for (int i = 0; i < AnswerLength.ANSWER_LENGTH.getAnswerLength(); i++) {
+        for (int i = 0; i < Constant.ANSWER_LENGTH; i++) {
             set.add(userInput.charAt(i));
         }
 
-        if (set.size() != AnswerLength.ANSWER_LENGTH.getAnswerLength()) {
+        if (set.size() != Constant.ANSWER_LENGTH) {
             throw new IllegalArgumentException("중복된 입력 예외");
         }
     }
 
     private static void zeroInput(final String userInput) {
-        for (int i = 0; i < AnswerLength.ANSWER_LENGTH.getAnswerLength(); i++) {
+        for (int i = 0; i < Constant.ANSWER_LENGTH; i++) {
             if (Integer.parseInt(String.valueOf(userInput.charAt(i))) == 0) {
                 throw new IllegalArgumentException("`0` 입력 예외");
             }
