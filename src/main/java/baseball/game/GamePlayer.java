@@ -1,12 +1,11 @@
 package baseball.game;
 
-import baseball.exception.ExceptionHandler;
+import baseball.validator.Validator;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GamePlayer {
-    private final ExceptionHandler exceptionHandler = new ExceptionHandler();
 
     protected List<Integer> userAnswerInput() {
 
@@ -15,8 +14,8 @@ public class GamePlayer {
         List<Integer> userInputToArrayListInteger = new ArrayList<>();
 
         try {
-            userInputToStringArray = exceptionHandler
-                    .exceptionHandler(Console.readLine())
+            userInputToStringArray = Validator
+                    .validator(Console.readLine())
                     .split("");
         } catch (Exception exception) {
             throw new IllegalArgumentException();
@@ -34,7 +33,7 @@ public class GamePlayer {
         String userRestartInput;
 
         try {
-            userRestartInput = exceptionHandler
+            userRestartInput = Validator
                     .userElseInputAfterEndPhraseException(Console.readLine());
         } catch (IllegalArgumentException illegalArgumentException) {
             throw new IllegalArgumentException();

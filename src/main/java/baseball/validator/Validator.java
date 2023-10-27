@@ -1,21 +1,21 @@
-package baseball.exception;
+package baseball.validator;
 
 import baseball.game.AnswerLength;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ExceptionHandler {
+public final class Validator {
 
-    public String exceptionHandler(String userInput) {
-        userElseInputException(userInput);
-        userWrongLengthInputException(userInput);
-        userDuplicatedInputException(userInput);
-        userZeroInputException(userInput);
+    public static String validator(final String userInput) {
+        elseInput(userInput);
+        wrongLengthInput(userInput);
+        duplicatedInput(userInput);
+        zeroInput(userInput);
 
         return userInput;
     }
 
-    private void userElseInputException(String userInput) {
+    private static void elseInput(final String userInput) {
         try {
             Integer.parseInt(userInput);
         } catch (Exception exception) {
@@ -23,13 +23,13 @@ public class ExceptionHandler {
         }
     }
 
-    private void userWrongLengthInputException(String userInput) {
+    private static void wrongLengthInput(final String userInput) {
         if (userInput.length() != AnswerLength.ANSWER_LENGTH.getAnswerLength()) {
             throw new IllegalArgumentException("입력 길이 예외");
         }
     }
 
-    private void userDuplicatedInputException(String userInput) {
+    private static void duplicatedInput(final String userInput) {
         Set<Character> set = new HashSet<>();
 
         for (int i = 0; i < AnswerLength.ANSWER_LENGTH.getAnswerLength(); i++) {
@@ -41,7 +41,7 @@ public class ExceptionHandler {
         }
     }
 
-    private void userZeroInputException(String userInput) {
+    private static void zeroInput(final String userInput) {
         for (int i = 0; i < AnswerLength.ANSWER_LENGTH.getAnswerLength(); i++) {
             if (Integer.parseInt(String.valueOf(userInput.charAt(i))) == 0) {
                 throw new IllegalArgumentException("`0` 입력 예외");
@@ -49,7 +49,7 @@ public class ExceptionHandler {
         }
     }
 
-    public String userElseInputAfterEndPhraseException(String userInput) {
+    public static String userElseInputAfterEndPhraseException(final String userInput) {
 
         if (userInput.equals("1") || userInput.equals("2")) {
             return userInput;
